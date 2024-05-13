@@ -5,8 +5,11 @@ description = ""
 authors = ["Rachel Shu <rachel@rachelshu.com>"]
 readme = "README.md"
 
+
+# poetry export -f requirements.txt --without-hashes --output requirements.txt
+
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.12"
 streamlit = "^1.34.0"
 bs4 = "^0.0.2" # HTML parser
 spacy = "^3.7.4"
@@ -15,15 +18,17 @@ en-core-web-trf = {url = "https://github.com/explosion/spacy-models/releases/dow
 es-dep-news-trf = {url = "https://github.com/explosion/spacy-models/releases/download/es_dep_news_trf-3.7.2/es_dep_news_trf-3.7.2.tar.gz"}
 en-core-web-sm = {url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1.tar.gz"}
 es-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/es_core_news_sm-3.7.0/es_core_news_sm-3.7.0.tar.gz"}
+watchdog = "^4.0.0"
+poetry-plugin-export = "^1.8.0"
 
 [tool.poetry.group.dev.dependencies]
 jupyter = "^1.0.0"
 streamlit-jupyter = "^0.2.1"
 nbconvert = "^7.16.4" # for converting notebooks to scripts
+ipykernel = "^6.29.4"
 
 [tool.poetry.scripts]
 build = "scripts.build:main"
-start = "streamlit run app.py"
 
 [build-system]
 requires = ["poetry-core"]
