@@ -43,7 +43,7 @@ def gpt(system_prompt, prev, tgt):
 
 client2 = anthropic.Anthropic(
     # defaults to os.environ.get("ANTHROPIC_API_KEY")
-    api_key="my_api_key",
+    # api_key="my_api_key",
 )
 
 
@@ -72,6 +72,5 @@ def clod(system_prompt, prev1, tgt1):
         system=f"{system_prompt}",
         )
 
-    return message.content
-
+    return message.content[0].text
 
