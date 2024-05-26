@@ -6,29 +6,61 @@ modified: '2024-05-01T00:56:56.916Z'
 
 # Tools Research
 
-## NLP
-- spaCy
-  - https://blog.logrocket.com/guide-natural-language-processing-python-spacy/
-- NLTK
-  - https://www.nltk.org/api/nltk.translate.html
-- Claude
+**Further research: CAT software toolchains**
 
+**maybe get llama working on computer?**
 
-https://imada.sdu.dk/u/stjaenicke/data/papers/A_Survey_of_Text_Alignment_Visualization.pdf
+https://github.com/explosion/spacy-models/releases/tag/es_core_news_sm-3.7.0
+https://github.com/explosion/spacy-models/releases/tag/en_core_web_sm-3.7.1
 
+chose alice in wonderland because relatively simple and sufficiently long and stuff.
 
-Word Alignment in the Era of Deep Learning:
-A Tutorial
-https://arxiv.org/pdf/2212.00138
+https://github.com/facebookresearch/MUSE/blob/main/README.md
+https://dl.fbaipublicfiles.com/arrival/dictionaries/es-en.txt
+https://dl.fbaipublicfiles.com/arrival/dictionaries/en-es.txt
 
+-- doesn't seem to need lemmatization
 
+Bertalign
+https://github.com/bfsujason/bertalign
+
+https://github.com/explosion/spacy-streamlit
+-- for visualization
+
+**Streamlit pieces**
+
+https://github.com/ddobrinskiy/streamlit-jupyter
+https://st-annotated-text.streamlit.app/
+https://github.com/arnaudmiribel/streamlit-extras
+https://github.com/Mohamed-512/Extra-Streamlit-Components
+- stepper bar
+
+**tooling**
+https://github.com/pydantic/pydantic
+https://github.com/arnaudmiribel/streamlit-faker
+-- would be fun to write a claude-faker from this.
+
+## NLP tools
+* spaCy
+  * https://blog.logrocket.com/guide-natural-language-processing-python-spacy/
+  * https://spacy.io/
+* NLTK
+  * https://www.nltk.org/index.html
+  * https://www.nltk.org/api/nltk.translate.html
 
 https://pypi.org/project/awesome-align/
 
-Word Alignment Visualization
-
+## Word Alignment Visualization
 https://pypi.org/project/word-alignment-visualization
-# Example data
-src_tokens = ["I", "love", "coding"]
-tgt_tokens = ["J'aime", "coder"]
-alignment = [[0, 0], [1, 0], [2, 1]]
+
+## Word Aligners
+CombAlign: a Tool for Obtaining High-Quality Word Alignments (2021)
+https://aclanthology.org/2021.nodalida-main.7.pdf
+https://github.com/steinst/CombAlign
+
+Manual word alignment
+https://github.com/steinst/AlignMan
+
+Word Alignment by Fine-tuning Embeddings on Parallel Corpora
+Awewsome-align
+https://arxiv.org/pdf/2101.08231

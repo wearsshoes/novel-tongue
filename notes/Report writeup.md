@@ -1,4 +1,10 @@
-# Language Learning
+---
+title: Report writeup
+created: '2024-05-01T00:56:21.918Z'
+modified: '2024-05-01T01:06:22.545Z'
+---
+
+# Opening the Chinese Room
 
 ## Theory
 
@@ -16,12 +22,13 @@ I thought this was a pretty interesting idea to look into, so I decided to see h
 - Set rules for transforming grammar and vocabulary, and decide where in the novel they start to apply.
 - Account for turns of phrase and idioms, that is to say, ways of communicating which don't translate exactly.
 
-How hard could it be to get computers to do these things? Well, it turns out that these are some of the classic problems in natural language processing (NLP), and thus of AI in general. Machine translation is hard enough; and it's usually done by putting text in one side of a complicated neural algorithm and getting the translation out the other; the computer can't really tell you how it's done, because it doesn't know, and it can't programmatically step through each translation step and tell you what's going on, or what relates to what.
+How hard could it be to get computers to do these things? Well, it turns out that these are some of the classic problems (word alignment, dependency parsing, annotation projection) in natural language processing (NLP), and thus of AI in general. Machine translation is hard enough; and it's usually done by putting text in one side of a complicated neural algorithm and getting the translation out the other; the computer can't really tell you how it's done, because it doesn't know, and it can't programmatically step through each translation step and tell you what's going on, or what relates to what.
 
-In fact, as [this paper](https://arxiv.org/pdf/2212.00138) explains, one of the major reasons why we have modern large language models (LLMs) now is because researchers needed to find ways to track context dependent meanings across long distances for translation purposes, and this led to the invention of the transformer architecture, which is able to hold information about the entire text sequence when evaluating the meaning of a word (or determining what word should go in a position).
+In fact, as [this paper](https://arxiv.org/pdf/2212.00138) explains, one of the major reasons why we have modern large language models (LLMs) now is because researchers needed to find ways to track context dependent meanings across long distances for translation purposes, and this led to the invention of the transformer architecture, which is able to hold information about the relation of the rest of the text sequence to a word when evaluating the meaning of a word (or determining what word should go in a position).
 
-LLMs (and other transformer-based models in various ways) are the key to making this project possible now. It would have been an incredibly tedious project when Scott Alexander proposed the idea in 2013. I'm using LLMs for much of the project, but because of the precision of the task, it's been incredibly helpful to learn the history of this field.
+"Why can't you just have Claude do it? Well, for one, Claude fights you, because it's finetuned to avoid nonsense, and it's finetuned to do translations. So it doesn't want to stop halfway, it wants to keep going. It also doesn't follow rules quite well enough. "Could you fine-tune it to the task?" -- Well, data for halfway translations doesn't exist, and creating the data is equivalent to getting the job done, so you're up hell creek. Current major LLMs are not effective at this sort of task.
 
+Nevertheless LLMs (and other transformer-based models in various ways) are the key to making this project possible now. It would have been an incredibly tedious project when Scott Alexander proposed the idea in 2013. I'm using transformer-based models for much of the project, but because of the precision of the task, it's been incredibly helpful to learn the history of this field.
 
 ## Process
 
@@ -29,7 +36,7 @@ LLMs (and other transformer-based models in various ways) are the key to making 
 I took the text of Alice in Wonderland in English and Spanish from [Bilinguis](http://bilinguis.com/), which is an educational website that presents some public domain texts in multiple languages side by side. It's pretty neat, and I'd recommend it as a language learning tool.
 
 ### Processing sentence alignments
-Sentence alignment is the process of figuring out which sentences from each of two texts are the same as each other. For example:
+Sentence alignment is the process of figuring out which sentences from each of two texts are the same as each other. For example **TODO: GET NICER EXAMPLE**
 
 1.   > CHAPTER I.
 
@@ -81,14 +88,18 @@ This was a pretty annoying intermediate step, which I am mentioning just because
 ### Applying word substitutions
 *
 
-### Applying rules
+### Applying syntax rules
+* Probably is easier to get all the way to the end than it is to get to any of the places in the middle?
 *
 
 ### Transforming the text
 
 ### Creating tools for educators
-I'm really stuck here. Even writing a
+I'm really stuck here.
+Attempting to write a rule for switching nouns and adjectives within a sentence turned out to be fairly complicated even with parts of speech tags provided by spaCy, and as I was finishing the rule already I was realizing I failed to catch substantial edge cases. **PROVIDE EXAMPLE**
 
-Probably the thing to do is to
+I'm not sure how to build this tooling in a way that an average language teacher could program in a rule, then.
+
+Let alone what to do in other languages with edafe or other similar constructions etc.
 
 ### Presentation
