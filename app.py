@@ -22,28 +22,35 @@ def load_aligned_texts(file_path):
     Load aligned texts from a file.
     """
     src_text = []
+    mix_text = []
+    pinyin_text = []
     tgt_text = []
     with open(file_path, "r", encoding="UTF-8") as f:
         c1 = f.read()
 
         lines = c1.splitlines()
-        for j in range(0, len(lines), 3):
-            src_text.append(lines[j])
-            tgt_text.append(lines[j + 1])
-    return src_text, tgt_text
+        for j in range(0, len(lines), 4):
+            src_text.append(lines[j].strip())
+            mix_text.append(lines[j + 1].strip())
+            pinyin_text.append(lines[j + 2].strip())
+            tgt_text.append(lines[j + 3].strip())
+    return src_text, mix_text, pinyin_text, tgt_text
 
+FILE_PATH = "c1_aligned_en_py_zh_mix.txt"
+# FILE_PATH = "c1_aligned_es_en_mix.txt"
+src_sents, mix_sents, pinyin_sents, tgt_sents = load_aligned_texts(FILE_PATH)
 
-FILE_PATH = "notebooks/hb_aligned_texts/c1_aligned.txt"
-src_sents, tgt_sents = load_aligned_texts(FILE_PATH)
-mix_sents = load_aligned_texts("notebooks/hb_calque_texts/c1_mix_aligned.txt")[0]
+# for i, (src, mix, tgt) in enumerate(zip(src_sents, mix_sents, tgt_sents)):
+#     col1, col2, col3 = st.columns(3)
+#     with col1:
+#         st.markdown(f"{i}, :red[{src}]")
+#     with col2:
+#         st.markdown(f":green[{mix}]")
+#     with col3:
+#         st.markdown(f":blue[{tgt}]")
+#     if i % 3 == 0 and i > 0:
+#         st.write("----")
 
-for i, (src, mix, tgt) in enumerate(zip(src_sents, mix_sents, tgt_sents)):
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        st.markdown(f"{i}, :red[{src}]")
-    with col2:
-        st.markdown(f":red[{mix}]")
-    with col3:
-        st.markdown(f":blue[{tgt}]")
-    if i % 3 == 0 and i > 0:
-        st.write("----")
+for i, (src, mix, pinyin, tgt) in enumerate(zip(src_sents, mix_sents, pinyin_sents, tgt_sents)):
+    st.markdown(f":purple[{src}] \n\n:orange[{mix}] \n\n:green[{pinyin}] \n\n:blue[{tgt}]")
+    st.write("----")
